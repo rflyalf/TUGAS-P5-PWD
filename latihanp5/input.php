@@ -51,24 +51,34 @@
                     <input type="text" name="tempatlahir" maxlength="20" size="20" required>
                     <select name="tanggallahir" required>
                         <?php
+                        // Loop untuk tanggal
                         for ($i = 1; $i <= 31; $i++) {
                             echo "<option value='$i'>$i</option>";
                         }
                         ?>
                     </select>
                     <select name="bulanlahir" required>
-                        <option>Januari</option>
-                        <option>Februari</option>
-                        <option>Maret</option>
-                        <option>April</option>
-                        <option>Mei</option>
-                        <option>Juni</option>
-                        <option>Juli</option>
-                        <option>Agustus</option>
-                        <option>September</option>
-                        <option>Oktober</option>
-                        <option>November</option>
-                        <option>Desember</option>
+                        <?php
+                        // Daftar bulan dalam array
+                        $bulan = array(
+                            'Januari',
+                            'Februari',
+                            'Maret',
+                            'April',
+                            'Mei',
+                            'Juni',
+                            'Juli',
+                            'Agustus',
+                            'September',
+                            'Oktober',
+                            'November',
+                            'Desember'
+                        );
+                        // Loops untuk menampilkan bulan - Sebagai Perulngan Foreach
+                        foreach ($bulan as $bln) {
+                            echo "<option value='$bln'>$bln</option>";
+                        }
+                        ?>
                     </select>
                     <input type="text" name="tahunlahir" maxlength="4" value="2009" size="10" required>
                 </td>
