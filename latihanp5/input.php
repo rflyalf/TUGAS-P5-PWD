@@ -51,7 +51,7 @@
                     <input type="text" name="tempatlahir" maxlength="20" size="20" required>
                     <select name="tanggallahir" required>
                         <?php
-                        // Loop untuk tanggal
+                        // Kondisi Perulangan untuk tanggal
                         for ($i = 1; $i <= 31; $i++) {
                             echo "<option value='$i'>$i</option>";
                         }
@@ -59,7 +59,6 @@
                     </select>
                     <select name="bulanlahir" required>
                         <?php
-                        // Daftar bulan dalam array
                         $bulan = array(
                             'Januari',
                             'Februari',
@@ -74,9 +73,18 @@
                             'November',
                             'Desember'
                         );
-                        // Loops untuk menampilkan bulan - Sebagai Perulngan Foreach
-                        foreach ($bulan as $bln) {
-                            echo "<option value='$bln'>$bln</option>";
+
+                        // Mengambil bulan saat ini
+                        $currentMonth = date('n'); // Bulan dalam angka (1-12)
+
+                        // Perulangan untuk menampilkan bulan dengan percabangan
+                        foreach ($bulan as $index => $bln) {
+                            $bulanIndex = $index + 1; // Index bulan dimulai dari 0, tambah 1 agar sesuai dengan bulan dalam angka
+                            if ($bulanIndex == $currentMonth) {
+                                echo "<option value='$bln' selected>$bln</option>"; // Jika udah bulan saat ini, tambahkan atribut selected saja
+                            } else {
+                                echo "<option value='$bln'>$bln</option>";
+                            }
                         }
                         ?>
                     </select>
